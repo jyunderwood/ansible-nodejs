@@ -1,0 +1,8 @@
+#!/bin/bash
+
+cd /usr/local/src/
+tar xvfz node-v{{ nodejs_version }}.tar.gz
+cd node-v{{ nodejs_version }}
+./configure --prefix={{ nodejs_location }}
+make --jobs {{ ansible_processor_cores }}
+make install

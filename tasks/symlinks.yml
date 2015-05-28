@@ -1,0 +1,13 @@
+---
+- name: "make node.js symlinks"
+  file: path=/usr/local/bin/{{ item }}
+        src={{ nodejs_location }}/bin/{{ item }}
+        state=link
+  with_items:
+    - node
+    - npm
+
+- name: "make `current` node.js symlink"
+  file: path={{ nodejs_base_dir }}/current
+        src={{ nodejs_location }}
+        state=link

@@ -1,0 +1,15 @@
+---
+- name: "download node.js source code"
+  get_url: url={{ nodejs_download_location }}
+           dest=/usr/local/src/
+
+- name: "generate node.js installation script"
+  template: src=install-nodejs.j2
+            dest=/usr/local/src/install-nodejs.sh
+            owner=root
+            group=root
+            mode=700
+
+- name: "run node.js install script"
+  command: /usr/local/src/install-nodejs.sh
+           creates={{ nodejs_location }}/bin/node

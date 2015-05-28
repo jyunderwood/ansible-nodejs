@@ -1,0 +1,8 @@
+---
+nodejs_enabled: yes
+nodejs_version: "0.12.4"
+
+nodejs_base_dir: "/opt/node"
+nodejs_location: "{{ nodejs_base_dir }}/{{ nodejs_version }}"
+nodejs_executable: "{{ nodejs_location }}/bin/node"
+nodejs_download_location: "http://nodejs.org/dist/v{{ nodejs_version }}/node-v{{ nodejs_version }}.tar.gz"
